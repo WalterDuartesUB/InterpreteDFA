@@ -12,6 +12,7 @@ public class Symbol implements ISymbol {
 		return super.toString();
 	}
 
+	@Override
 	public String getValue() {
 		return value;
 	}

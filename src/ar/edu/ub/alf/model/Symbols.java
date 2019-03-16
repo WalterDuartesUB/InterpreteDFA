@@ -1,15 +1,31 @@
 package ar.edu.ub.alf.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Symbols implements ISymbols {
 
-	public void add(ISymbol symbol) {
+	private Map<String, ISymbol> symbols;
+	
+	public Symbols() {
+		this.setSymbols( new HashMap<String, ISymbol>());
+	}
 
-		
+	public void add(ISymbol symbol) {
+		this.getSymbols().put(symbol.getValue(), symbol);		
 	}
 
 	@Override
 	public ISymbol get(String value) {
-		return null;
+		return this.getSymbols().get(value);
+	}
+
+	public Map<String, ISymbol> getSymbols() {
+		return symbols;
+	}
+
+	public void setSymbols(Map<String, ISymbol> symbols) {
+		this.symbols = symbols;
 	}
 
 }

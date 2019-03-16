@@ -7,6 +7,7 @@ public class State implements IState {
 		this.setValue(value);
 	}
 	
+	@Override
 	public String getValue() {
 		return value;
 	}
