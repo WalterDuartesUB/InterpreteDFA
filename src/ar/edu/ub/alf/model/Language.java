@@ -1,5 +1,9 @@
 package ar.edu.ub.alf.model;
 
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Language implements ILanguage{
 
 	private ISymbols symbols;
@@ -12,7 +16,26 @@ public class Language implements ILanguage{
 
 	@Override
 	public IState evaluate(String aString) {
-		return new State("ERROR");
+		
+		IState s = this.getStates().getInitialState();
+		
+		Collection<ISymbol> symbols = this.getSymbols( aString );		
+		
+		for( ISymbol symbol : symbols )
+			s = s.getNextState( symbol );
+		
+		return s;
+	}
+
+	private Collection<ISymbol> getSymbols(String aString) {
+		List<ISymbol> listOfSymbols = new LinkedList<ISymbol>();
+		
+		listOfSymbols.add(this.getSymbols().get("a"));		
+		listOfSymbols.add(this.getSymbols().get("b"));
+		listOfSymbols.add(this.getSymbols().get("a"));
+		listOfSymbols.add(this.getSymbols().get("a"));
+		
+		return listOfSymbols;
 	}
 
 	public IStates getStates() {

@@ -4,4 +4,6 @@ public interface IState {
 
 	String getValue();
 
+	IState getNextState(ISymbol symbol);
+
 }

@@ -1,10 +1,16 @@
 package ar.edu.ub.alf.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class State implements IState {
 	private String value;
 	
+	private Map<ISymbol, IState> nextStates;
+	
 	public State(String value) {
 		this.setValue(value);
+		this.setNextStates( new HashMap<ISymbol,IState>());
 	}
 	
 	@Override
@@ -21,6 +27,19 @@ public class State implements IState {
 	}
 
 	public void setNext(ISymbol iSymbol, IState state) {
-		
+		this.getNextStates().put(iSymbol, state);
+	}
+
+	@Override
+	public IState getNextState(ISymbol symbol) {
+		return this.getNextStates().get(symbol);
+	}
+
+	public Map<ISymbol, IState> getNextStates() {
+		return nextStates;
+	}
+
+	public void setNextStates(Map<ISymbol, IState> nextStates) {
+		this.nextStates = nextStates;
 	}
 }

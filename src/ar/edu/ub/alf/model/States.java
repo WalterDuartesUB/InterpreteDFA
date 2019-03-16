@@ -41,6 +41,7 @@ public class States implements IStates {
 		this.addState(state);		
 	}
 
+	@Override
 	public State getInitialState() {
 		return initialState;
 	}
