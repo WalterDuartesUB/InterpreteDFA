@@ -12,7 +12,6 @@ import ar.edu.ub.alf.model.interfaces.ILanguage;
 import ar.edu.ub.alf.model.interfaces.ILanguageBuilder;
 import ar.edu.ub.alf.model.interfaces.IStates;
 import ar.edu.ub.alf.model.interfaces.ISymbols;
-import ar.edu.ub.alf.model.states.AcceptanceState;
 import ar.edu.ub.alf.model.states.InitialState;
 import ar.edu.ub.alf.model.states.State;
 import ar.edu.ub.alf.model.states.States;
@@ -46,13 +45,7 @@ public class LanguageBuilder implements ILanguageBuilder {
 	}
 
 	private IStates buildStates(ISymbols symbols, List<String> lines) throws SymbolNotFoundException, StateNotFoundException {
-		States states = new States();
-
-		// build of the states
-		states.add(new InitialState("Q"));
-		states.add(new State("P"));
-		states.add(new AcceptanceState("R"));
-		states.add(new State("ERROR"));
+		States states = buildStatesFromString(lines.get(1) );
 
 		// Binding states
 		states.get("Q").setNextState(symbols.get("a"), states.get("P"));
@@ -64,6 +57,21 @@ public class LanguageBuilder implements ILanguageBuilder {
 		states.get("ERROR").setNextState(symbols.get("a"), states.get("ERROR"));
 		states.get("ERROR").setNextState(symbols.get("b"), states.get("ERROR"));
 
+		return states;
+	}
+
+	private States buildStatesFromString(String line) {
+		States states = new States();
+
+		String[] s = line.split(" ");
+		
+		// build the initial state
+		states.add(new InitialState(s[0]));
+		
+		// build of the states
+		for( int i = 1; i < s.length; i ++ )
+			states.add(new State( s[i] ));
+		
 		return states;
 	}
 
