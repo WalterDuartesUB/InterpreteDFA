@@ -11,7 +11,14 @@ public class LanguageBuilder implements ILanguageBuilder{
 	}
 
 	private IStates buildStates(ISymbols symbols) { 
-		return new States();
+		States states = new States();
+		
+		states.add( new State("Q"));
+		states.add( new State("P"));
+		states.add( new State("R"));
+		states.add( new State("ERROR"));		
+		
+		return states;
 	}
 
 	private ISymbols buildSymbols() {

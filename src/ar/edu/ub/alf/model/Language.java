@@ -12,7 +12,7 @@ public class Language implements ILanguage{
 
 	@Override
 	public IState evaluate(String aString) {
-		return new State();
+		return new State("ERROR");
 	}
 
 	public IStates getStates() {
