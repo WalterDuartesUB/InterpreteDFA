@@ -36,10 +36,8 @@ public class Language implements ILanguage{
 	private Collection<ISymbol> getSymbols(String aString) {
 		List<ISymbol> listOfSymbols = new LinkedList<ISymbol>();
 		
-		listOfSymbols.add(this.getSymbols().get("a"));		
-		listOfSymbols.add(this.getSymbols().get("b"));
-		listOfSymbols.add(this.getSymbols().get("a"));
-		listOfSymbols.add(this.getSymbols().get("a"));
+		for( int i = 0; i < aString.length(); i ++ )			
+			listOfSymbols.add(this.getSymbols().get(String.valueOf(aString.charAt(i))));
 		
 		return listOfSymbols;
 	}
