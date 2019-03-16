@@ -38,12 +38,26 @@ public class LanguageBuilder implements ILanguageBuilder {
 
 	private List<String> getFileLines() throws InvalidDFAFileException {
 		try {
-			return Files.readAllLines(Paths.get(this.getDfaConfigurationFilePath()));
+			List<String> lines = Files.readAllLines(Paths.get(this.getDfaConfigurationFilePath()));
+			
+			if( lines.size() < 4 )
+				throw new InvalidDFAFileException();
+			
+			return lines;
 		} catch (IOException e) {
 			throw new InvalidDFAFileException();
 		}
 	}
 
+	private ISymbols buildSymbols(String symbolsLine) {
+		Symbols symbols = new Symbols();
+
+		for (int i = 0; i < symbolsLine.length(); i++)
+			symbols.add(new Symbol(String.valueOf(symbolsLine.charAt(i))));
+
+		return symbols;
+	}
+	
 	private IStates buildStates(ISymbols symbols, List<String> lines) throws SymbolNotFoundException, StateNotFoundException {
 		States states = this.buildStatesFromString(lines.get(1) );
 
@@ -53,13 +67,7 @@ public class LanguageBuilder implements ILanguageBuilder {
 
 		return states;
 	}
-
-	private void bindNextStateFromLine(States states, ISymbols symbols, String line) throws StateNotFoundException, SymbolNotFoundException {
-		String[] fields = line.split(" ");
-		
-		states.get(fields[0]).setNextState(symbols.get(fields[1]), states.get(fields[2]));
-	}
-
+	
 	private States buildStatesFromString(String line) {
 		States states = new States();
 
@@ -74,14 +82,11 @@ public class LanguageBuilder implements ILanguageBuilder {
 		
 		return states;
 	}
-
-	private ISymbols buildSymbols(String symbolsLine) {
-		Symbols symbols = new Symbols();
-
-		for (int i = 0; i < symbolsLine.length(); i++)
-			symbols.add(new Symbol(String.valueOf(symbolsLine.charAt(i))));
-
-		return symbols;
+	
+	private void bindNextStateFromLine(States states, ISymbols symbols, String line) throws StateNotFoundException, SymbolNotFoundException {
+		String[] fields = line.split(" ");
+		
+		states.get(fields[0]).setNextState(symbols.get(fields[1]), states.get(fields[2]));
 	}
 
 	private String getDfaConfigurationFilePath() {
