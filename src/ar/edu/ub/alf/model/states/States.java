@@ -3,8 +3,8 @@ package ar.edu.ub.alf.model.states;
 import java.util.HashMap;
 import java.util.Map;
 
+import ar.edu.ub.alf.model.exceptions.StateNotFoundException;
 import ar.edu.ub.alf.model.interfaces.IStates;
-import ar.edu.ub.alf.model.symbols.StateNotFoundException;
 
 public class States implements IStates {
 	

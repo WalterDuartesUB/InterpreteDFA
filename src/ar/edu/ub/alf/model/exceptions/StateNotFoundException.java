@@ -1,6 +1,4 @@
-package ar.edu.ub.alf.model.symbols;
-
-import ar.edu.ub.alf.model.exceptions.DFAException;
+package ar.edu.ub.alf.model.exceptions;
 
 public class StateNotFoundException extends DFAException {
 

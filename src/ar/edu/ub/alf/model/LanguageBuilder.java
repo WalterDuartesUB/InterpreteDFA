@@ -7,6 +7,7 @@ import java.util.List;
 
 import ar.edu.ub.alf.model.exceptions.DFAException;
 import ar.edu.ub.alf.model.exceptions.InvalidDFAFileException;
+import ar.edu.ub.alf.model.exceptions.StateNotFoundException;
 import ar.edu.ub.alf.model.exceptions.SymbolNotFoundException;
 import ar.edu.ub.alf.model.interfaces.ILanguage;
 import ar.edu.ub.alf.model.interfaces.ILanguageBuilder;
@@ -15,7 +16,6 @@ import ar.edu.ub.alf.model.interfaces.ISymbols;
 import ar.edu.ub.alf.model.states.InitialState;
 import ar.edu.ub.alf.model.states.State;
 import ar.edu.ub.alf.model.states.States;
-import ar.edu.ub.alf.model.symbols.StateNotFoundException;
 import ar.edu.ub.alf.model.symbols.Symbol;
 import ar.edu.ub.alf.model.symbols.Symbols;
 
