@@ -1,4 +1,4 @@
-package ar.edu.ub.alf.model;
+package ar.edu.ub.alf.model.symbols;
 
 import java.util.HashMap;
 import java.util.Map;
