@@ -45,19 +45,19 @@ public class LanguageBuilder implements ILanguageBuilder {
 	}
 
 	private IStates buildStates(ISymbols symbols, List<String> lines) throws SymbolNotFoundException, StateNotFoundException {
-		States states = buildStatesFromString(lines.get(1) );
+		States states = this.buildStatesFromString(lines.get(1) );
 
 		// Binding states
-		states.get("Q").setNextState(symbols.get("a"), states.get("P"));
-		states.get("Q").setNextState(symbols.get("b"), states.get("ERROR"));
-		states.get("P").setNextState(symbols.get("a"), states.get("R"));
-		states.get("P").setNextState(symbols.get("b"), states.get("ERROR"));
-		states.get("R").setNextState(symbols.get("a"), states.get("R"));
-		states.get("R").setNextState(symbols.get("b"), states.get("R"));
-		states.get("ERROR").setNextState(symbols.get("a"), states.get("ERROR"));
-		states.get("ERROR").setNextState(symbols.get("b"), states.get("ERROR"));
+		for( int i = 3; i < lines.size(); i++ )
+			this.bindNextStateFromLine(states, symbols, lines.get(i));
 
 		return states;
+	}
+
+	private void bindNextStateFromLine(States states, ISymbols symbols, String line) throws StateNotFoundException, SymbolNotFoundException {
+		String[] fields = line.split(" ");
+		
+		states.get(fields[0]).setNextState(symbols.get(fields[1]), states.get(fields[2]));
 	}
 
 	private States buildStatesFromString(String line) {
