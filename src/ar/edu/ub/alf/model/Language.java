@@ -37,6 +37,9 @@ public class Language implements ILanguage{
 	private Collection<ISymbol> getSymbols(String aString) throws DFAException {
 		List<ISymbol> listOfSymbols = new LinkedList<ISymbol>();
 		
+		if( aString == null )
+			aString = "";
+		
 		for( int i = 0; i < aString.length(); i ++ )			
 			listOfSymbols.add(this.getSymbols().get(String.valueOf(aString.charAt(i))));
 		

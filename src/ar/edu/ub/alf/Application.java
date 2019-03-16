@@ -21,10 +21,8 @@ public class Application {
 	private void run(String[] args) {		
 		try {
 			CommandLine cmd = this.builtCommandLine(args);
-			ILanguage lang = this.createLanguage( cmd.getOptionValue("dfaConfiguration"));
-			String aString = "aab";
-			
-			System.out.println( lang.evaluate( aString ) );
+			ILanguage lang = this.createLanguage( cmd.getOptionValue("dfaConfiguration"));						
+			System.out.println( lang.evaluate( cmd.getOptionValue("word") ) );
 		} catch (DFAException e) {		
 			e.printStackTrace();
 		} catch(CommandLineException cle) {
@@ -36,8 +34,13 @@ public class Application {
         Options options = new Options();
 
         //File with the definition of the DFA
-        Option input = new Option("d", "dfaConfiguration", true, "dfa configuration file path");
+        Option input = new Option("d", "dfaConfiguration", true, "dfa configuration file path");        
         input.setRequired(true);
+        options.addOption(input);
+        
+        //Word to evaluate
+        input = new Option("w", "word", true, "word to evaluate");
+        input.setRequired(false);        
         options.addOption(input);
 
         CommandLineParser parser = new DefaultParser();
