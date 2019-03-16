@@ -26,7 +26,8 @@ public class LanguageBuilder implements ILanguageBuilder{
 
 	private IStates buildStates(ISymbols symbols) throws SymbolNotFoundException, StateNotFoundException { 
 		States states = new States();
-		
+	
+		// build of the states
 		states.add( new InitialState("Q"));
 		states.add( new State("P"));
 		states.add( new AcceptanceState("R"));
