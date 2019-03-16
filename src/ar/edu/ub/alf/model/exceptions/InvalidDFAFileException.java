@@ -1,6 +1,4 @@
-package ar.edu.ub.alf.model;
-
-import ar.edu.ub.alf.model.exceptions.DFAException;
+package ar.edu.ub.alf.model.exceptions;
 
 public class InvalidDFAFileException extends DFAException {
 

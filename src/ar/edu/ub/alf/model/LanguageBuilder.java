@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import ar.edu.ub.alf.model.exceptions.DFAException;
+import ar.edu.ub.alf.model.exceptions.InvalidDFAFileException;
 import ar.edu.ub.alf.model.exceptions.SymbolNotFoundException;
 import ar.edu.ub.alf.model.interfaces.ILanguage;
 import ar.edu.ub.alf.model.interfaces.ILanguageBuilder;
