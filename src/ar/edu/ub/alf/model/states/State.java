@@ -5,6 +5,7 @@ import java.util.Map;
 
 import ar.edu.ub.alf.model.interfaces.IState;
 import ar.edu.ub.alf.model.interfaces.ISymbol;
+import ar.edu.ub.alf.util.Asserts;
 
 public class State implements IState {
 	private String value;
@@ -22,6 +23,7 @@ public class State implements IState {
 	}
 	
 	private void setValue(String value) {
+		Asserts.checkNullOrEmpty(value);
 		this.value = value;
 	}
 

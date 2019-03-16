@@ -1,6 +1,7 @@
 package ar.edu.ub.alf.model.symbols;
 
 import ar.edu.ub.alf.model.interfaces.ISymbol;
+import ar.edu.ub.alf.util.Asserts;
 
 public class Symbol implements ISymbol {
 	private String value;
@@ -20,6 +21,7 @@ public class Symbol implements ISymbol {
 	}
 
 	private void setValue(String value) {
+		Asserts.checkNullOrEmpty(value);
 		this.value = value;
 	}
 }
