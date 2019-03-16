@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import ar.edu.ub.alf.model.exceptions.DFAException;
 import ar.edu.ub.alf.model.interfaces.ILanguage;
 import ar.edu.ub.alf.model.interfaces.IState;
 import ar.edu.ub.alf.model.interfaces.IStates;
@@ -21,7 +22,7 @@ public class Language implements ILanguage{
 	}
 
 	@Override
-	public IState evaluate(String aString) {
+	public IState evaluate(String aString) throws DFAException{
 		
 		IState s = this.getStates().getInitialState();
 		
@@ -33,7 +34,7 @@ public class Language implements ILanguage{
 		return s;
 	}
 
-	private Collection<ISymbol> getSymbols(String aString) {
+	private Collection<ISymbol> getSymbols(String aString) throws DFAException {
 		List<ISymbol> listOfSymbols = new LinkedList<ISymbol>();
 		
 		for( int i = 0; i < aString.length(); i ++ )			

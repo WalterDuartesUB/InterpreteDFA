@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ar.edu.ub.alf.model.interfaces.IStates;
+import ar.edu.ub.alf.model.symbols.StateNotFoundException;
 
 public class States implements IStates {
 	
@@ -18,8 +19,13 @@ public class States implements IStates {
 		this.getStates().put( state.getValue(), state );
 	}
 	
-	public State get(String value){
-		return this.getStates().get(value);		
+	public State get(String value) throws StateNotFoundException{
+		State s = this.getStates().get(value);
+		
+		if( s == null )
+			throw new StateNotFoundException();
+		
+		return s;
 	}
 
 	private Map<String, State> getStates() {

@@ -1,5 +1,7 @@
 package ar.edu.ub.alf.model;
 
+import ar.edu.ub.alf.model.exceptions.DFAException;
+import ar.edu.ub.alf.model.exceptions.SymbolNotFoundException;
 import ar.edu.ub.alf.model.interfaces.ILanguage;
 import ar.edu.ub.alf.model.interfaces.ILanguageBuilder;
 import ar.edu.ub.alf.model.interfaces.IStates;
@@ -8,20 +10,21 @@ import ar.edu.ub.alf.model.states.AcceptanceState;
 import ar.edu.ub.alf.model.states.InitialState;
 import ar.edu.ub.alf.model.states.State;
 import ar.edu.ub.alf.model.states.States;
+import ar.edu.ub.alf.model.symbols.StateNotFoundException;
 import ar.edu.ub.alf.model.symbols.Symbol;
 import ar.edu.ub.alf.model.symbols.Symbols;
 
 public class LanguageBuilder implements ILanguageBuilder{
 
 	@Override
-	public ILanguage build(){
+	public ILanguage build() throws DFAException{
 		ISymbols symbols = this.buildSymbols();
 		IStates states = this.buildStates(symbols);
 		
 		return new Language(symbols, states);
 	}
 
-	private IStates buildStates(ISymbols symbols) { 
+	private IStates buildStates(ISymbols symbols) throws SymbolNotFoundException, StateNotFoundException { 
 		States states = new States();
 		
 		states.add( new InitialState("Q"));
