@@ -1,0 +1,11 @@
+ab
+Q P R ERROR
+R
+Q a P
+Q b ERROR
+P a R
+P b ERROR
+R a R
+R b R
+ERROR a ERROR
+ERROR b ERROR
