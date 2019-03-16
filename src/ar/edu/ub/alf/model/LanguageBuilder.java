@@ -60,6 +60,9 @@ public class LanguageBuilder implements ILanguageBuilder {
 	
 	private IStates buildStates(ISymbols symbols, List<String> lines) throws SymbolNotFoundException, StateNotFoundException {
 		States states = this.buildStatesFromString(lines.get(1) );
+		
+		//Mark all the states as acceptance
+		this.setAcceptanceStatesFromString(states, lines.get(2));
 
 		// Binding states
 		for( int i = 3; i < lines.size(); i++ )
@@ -68,6 +71,13 @@ public class LanguageBuilder implements ILanguageBuilder {
 		return states;
 	}
 	
+	private void setAcceptanceStatesFromString(States states, String line) throws StateNotFoundException {
+		String[] acceptanceStates = line.split(" ");
+		
+		for( int i = 0; i < acceptanceStates.length; i ++ )
+			states.setAcceptanceState(acceptanceStates[i]);
+	}
+
 	private States buildStatesFromString(String line) {
 		States states = new States();
 

@@ -41,10 +41,6 @@ public class States implements IStates {
 		this.addState(initialState);
 	}
 
-	public void add(AcceptanceState acceptanceState) {		
-		this.addState(acceptanceState);
-	}
-
 	public void add(State state) {
 		this.addState(state);		
 	}
@@ -56,5 +52,9 @@ public class States implements IStates {
 
 	public void setInitialState(State initialState) {
 		this.initialState = initialState;
+	}
+
+	public void setAcceptanceState(String state) throws StateNotFoundException {
+		this.get(state).setAcceptanceState(true);
 	}
 }

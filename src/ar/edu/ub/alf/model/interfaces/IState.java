@@ -1,9 +1,9 @@
 package ar.edu.ub.alf.model.interfaces;
 
 public interface IState {
-
-	String getValue();
-
-	IState getNextState(ISymbol symbol);
-
+	public String getValue();	
+	public boolean isInitialState();
+	public boolean isAcceptanceState();
+	
+	public IState getNextState(ISymbol symbol);
 }

@@ -9,14 +9,21 @@ import ar.edu.ub.alf.util.Asserts;
 
 public class State implements IState {
 	private String value;
+	private boolean acceptanceState;
+	private boolean initialState;
 	
 	private Map<ISymbol, IState> nextStates;
 	
-	public State(String value) {
+	public State(String value, boolean initialState) {
 		this.setValue(value);
+		this.setInitialState(initialState);
 		this.setNextStates( new HashMap<ISymbol,IState>());
 	}
 	
+	public State(String value) {
+		this( value, false);
+	}
+
 	@Override
 	public String getValue() {
 		return value;
@@ -29,7 +36,7 @@ public class State implements IState {
 
 	@Override
 	public String toString() {
-		return this.getValue();
+		return "State [value=" + value + ", acceptanceState=" + acceptanceState + ", initialState=" + initialState + "]";
 	}
 
 	public void setNextState(ISymbol iSymbol, IState state) {
@@ -48,4 +55,24 @@ public class State implements IState {
 	private void setNextStates(Map<ISymbol, IState> nextStates) {
 		this.nextStates = nextStates;
 	}
+
+	@Override
+	public boolean isAcceptanceState() {
+		return acceptanceState;
+	}
+
+	public void setAcceptanceState(boolean acceptanceState) {
+		this.acceptanceState = acceptanceState;
+	}
+
+	@Override
+	public boolean isInitialState() {
+		return initialState;
+	}
+
+	public void setInitialState(boolean initialState) {
+		this.initialState = initialState;
+	}
+
+
 }
