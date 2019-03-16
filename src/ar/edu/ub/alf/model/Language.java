@@ -11,8 +11,8 @@ public class Language implements ILanguage{
 	}
 
 	@Override
-	public ISymbol evaluate(String aString) {
-		return new Symbol();
+	public IState evaluate(String aString) {
+		return new State();
 	}
 
 	public IStates getStates() {
