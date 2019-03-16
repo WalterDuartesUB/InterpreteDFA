@@ -1,7 +1,7 @@
 package ar.edu.ub.alf;
 
 import ar.edu.ub.alf.model.ILanguage;
-import ar.edu.ub.alf.model.ILanguageBuilder;
+import ar.edu.ub.alf.model.LanguageBuilder;
 
 public class Application {
 	public static void main(String[] args) {
@@ -16,6 +16,6 @@ public class Application {
 	}
 
 	private ILanguage createLanguage() {
-		return new ILanguageBuilder().build();
+		return new LanguageBuilder().build();
 	}
 }
