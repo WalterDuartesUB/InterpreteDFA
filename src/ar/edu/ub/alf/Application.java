@@ -1,7 +1,7 @@
 package ar.edu.ub.alf;
 
-import ar.edu.ub.alf.model.ILanguage;
 import ar.edu.ub.alf.model.LanguageBuilder;
+import ar.edu.ub.alf.model.interfaces.ILanguage;
 
 public class Application {
 	public static void main(String[] args) {

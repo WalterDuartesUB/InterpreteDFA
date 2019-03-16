@@ -1,4 +1,4 @@
-package ar.edu.ub.alf.model;
+package ar.edu.ub.alf.model.interfaces;
 
 public interface ISymbol {
 

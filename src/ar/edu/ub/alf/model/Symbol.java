@@ -1,5 +1,7 @@
 package ar.edu.ub.alf.model;
 
+import ar.edu.ub.alf.model.interfaces.ISymbol;
+
 public class Symbol implements ISymbol {
 	private String value;
 	

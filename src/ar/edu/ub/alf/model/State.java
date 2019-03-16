@@ -3,6 +3,9 @@ package ar.edu.ub.alf.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import ar.edu.ub.alf.model.interfaces.IState;
+import ar.edu.ub.alf.model.interfaces.ISymbol;
+
 public class State implements IState {
 	private String value;
 	

@@ -4,6 +4,12 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import ar.edu.ub.alf.model.interfaces.ILanguage;
+import ar.edu.ub.alf.model.interfaces.IState;
+import ar.edu.ub.alf.model.interfaces.IStates;
+import ar.edu.ub.alf.model.interfaces.ISymbol;
+import ar.edu.ub.alf.model.interfaces.ISymbols;
+
 public class Language implements ILanguage{
 
 	private ISymbols symbols;

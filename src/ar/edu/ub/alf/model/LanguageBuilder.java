@@ -1,5 +1,10 @@
 package ar.edu.ub.alf.model;
 
+import ar.edu.ub.alf.model.interfaces.ILanguage;
+import ar.edu.ub.alf.model.interfaces.ILanguageBuilder;
+import ar.edu.ub.alf.model.interfaces.IStates;
+import ar.edu.ub.alf.model.interfaces.ISymbols;
+
 public class LanguageBuilder implements ILanguageBuilder{
 
 	@Override

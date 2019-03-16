@@ -3,6 +3,9 @@ package ar.edu.ub.alf.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import ar.edu.ub.alf.model.interfaces.ISymbol;
+import ar.edu.ub.alf.model.interfaces.ISymbols;
+
 public class Symbols implements ISymbols {
 
 	private Map<String, ISymbol> symbols;
