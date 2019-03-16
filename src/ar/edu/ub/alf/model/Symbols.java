@@ -7,4 +7,9 @@ public class Symbols implements ISymbols {
 		
 	}
 
+	@Override
+	public ISymbol get(String value) {
+		return null;
+	}
+
 }

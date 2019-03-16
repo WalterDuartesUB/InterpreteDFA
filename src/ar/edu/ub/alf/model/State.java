@@ -18,4 +18,8 @@ public class State implements IState {
 	public String toString() {
 		return this.getValue();
 	}
+
+	public void setNext(ISymbol iSymbol, IState state) {
+		
+	}
 }

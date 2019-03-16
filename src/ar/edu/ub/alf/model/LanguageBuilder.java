@@ -16,7 +16,17 @@ public class LanguageBuilder implements ILanguageBuilder{
 		states.add( new State("Q"));
 		states.add( new State("P"));
 		states.add( new State("R"));
-		states.add( new State("ERROR"));		
+		states.add( new State("ERROR"));
+		
+		//Binding states
+		states.get("Q").setNext( symbols.get("a"), states.get("P") );
+		states.get("Q").setNext( symbols.get("b"), states.get("ERROR") );
+		states.get("P").setNext( symbols.get("a"), states.get("R") );
+		states.get("P").setNext( symbols.get("b"), states.get("ERROR") );
+		states.get("R").setNext( symbols.get("a"), states.get("R") );
+		states.get("R").setNext( symbols.get("b"), states.get("R") );
+		states.get("ERROR").setNext( symbols.get("a"), states.get("ERROR") );
+		states.get("ERROR").setNext( symbols.get("b"), states.get("ERROR") );
 		
 		return states;
 	}

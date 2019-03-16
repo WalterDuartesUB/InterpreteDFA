@@ -6,4 +6,7 @@ public class States implements IStates {
 		
 	}
 
+	State get(String value){
+		return null;		
+	}
 }
