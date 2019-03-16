@@ -19,7 +19,7 @@ public class Symbol implements ISymbol {
 		return value;
 	}
 
-	public void setValue(String value) {
+	private void setValue(String value) {
 		this.value = value;
 	}
 }

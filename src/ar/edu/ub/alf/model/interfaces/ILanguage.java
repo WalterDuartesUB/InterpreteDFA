@@ -4,4 +4,8 @@ public interface ILanguage {
 
 	IState evaluate(String aString);
 
+	ISymbols getSymbols();
+
+	IStates getStates();
+
 }

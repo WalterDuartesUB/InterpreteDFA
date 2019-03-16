@@ -23,11 +23,11 @@ public class Symbols implements ISymbols {
 		return this.getSymbols().get(value);
 	}
 
-	public Map<String, ISymbol> getSymbols() {
+	private Map<String, ISymbol> getSymbols() {
 		return symbols;
 	}
 
-	public void setSymbols(Map<String, ISymbol> symbols) {
+	private void setSymbols(Map<String, ISymbol> symbols) {
 		this.symbols = symbols;
 	}
 

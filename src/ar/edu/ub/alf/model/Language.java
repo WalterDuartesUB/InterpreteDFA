@@ -42,6 +42,7 @@ public class Language implements ILanguage{
 		return listOfSymbols;
 	}
 
+	@Override
 	public IStates getStates() {
 		return states;
 	}
@@ -50,6 +51,7 @@ public class Language implements ILanguage{
 		this.states = states;
 	}
 
+	@Override
 	public ISymbols getSymbols() {
 		return symbols;
 	}

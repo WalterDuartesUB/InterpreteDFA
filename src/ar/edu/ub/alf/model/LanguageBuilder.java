@@ -30,14 +30,14 @@ public class LanguageBuilder implements ILanguageBuilder{
 		states.add( new State("ERROR"));
 		
 		//Binding states
-		states.get("Q").setNext( symbols.get("a"), states.get("P") );
-		states.get("Q").setNext( symbols.get("b"), states.get("ERROR") );
-		states.get("P").setNext( symbols.get("a"), states.get("R") );
-		states.get("P").setNext( symbols.get("b"), states.get("ERROR") );
-		states.get("R").setNext( symbols.get("a"), states.get("R") );
-		states.get("R").setNext( symbols.get("b"), states.get("R") );
-		states.get("ERROR").setNext( symbols.get("a"), states.get("ERROR") );
-		states.get("ERROR").setNext( symbols.get("b"), states.get("ERROR") );
+		states.get("Q").setNextState( symbols.get("a"), states.get("P") );
+		states.get("Q").setNextState( symbols.get("b"), states.get("ERROR") );
+		states.get("P").setNextState( symbols.get("a"), states.get("R") );
+		states.get("P").setNextState( symbols.get("b"), states.get("ERROR") );
+		states.get("R").setNextState( symbols.get("a"), states.get("R") );
+		states.get("R").setNextState( symbols.get("b"), states.get("R") );
+		states.get("ERROR").setNextState( symbols.get("a"), states.get("ERROR") );
+		states.get("ERROR").setNextState( symbols.get("b"), states.get("ERROR") );
 		
 		return states;
 	}

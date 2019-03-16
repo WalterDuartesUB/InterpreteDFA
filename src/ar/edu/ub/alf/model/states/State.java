@@ -20,7 +20,8 @@ public class State implements IState {
 	public String getValue() {
 		return value;
 	}
-	public void setValue(String value) {
+	
+	private void setValue(String value) {
 		this.value = value;
 	}
 
@@ -29,7 +30,7 @@ public class State implements IState {
 		return this.getValue();
 	}
 
-	public void setNext(ISymbol iSymbol, IState state) {
+	public void setNextState(ISymbol iSymbol, IState state) {
 		this.getNextStates().put(iSymbol, state);
 	}
 
@@ -38,11 +39,11 @@ public class State implements IState {
 		return this.getNextStates().get(symbol);
 	}
 
-	public Map<ISymbol, IState> getNextStates() {
+	private Map<ISymbol, IState> getNextStates() {
 		return nextStates;
 	}
 
-	public void setNextStates(Map<ISymbol, IState> nextStates) {
+	private void setNextStates(Map<ISymbol, IState> nextStates) {
 		this.nextStates = nextStates;
 	}
 }
